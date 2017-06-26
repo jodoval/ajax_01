@@ -5,9 +5,14 @@
     <title>Introducción AJAX</title>
   </head>
   <body>
-    <button type="button" id="botonpulsame">Púlsame</button>
+    <div>
+      <input type="text" id="texto" placeholder="Introduce el texto">
+        <input type="text" id="estado" placeholder="Introduce el estado">
+          <input type="text" id="usuario_id" placeholder="Introduce el ID del usuario">
+          <button type="button" id="guardar">Guardar</button>
+    </div>
     <br>
-    <br> 
+    <br>
     <table border="1">
       <thead>
         <tr>
@@ -15,6 +20,7 @@
           <th>Texto</th>
           <th>Estado</th>
           <th>Usuario ID</th>
+          <th>Acción</th>
         </tr>
       </thead>
     <tbody id="tareas">

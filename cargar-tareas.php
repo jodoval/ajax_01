@@ -8,5 +8,8 @@ while ($fila=$resultado->fetch_assoc()){
   echo '<td>'.$fila['texto'].'</td>';
   echo '<td>'.$fila['estado'].'</td>';
   echo '<td>'.$fila['usuario_id'].'</td>';
+  echo '<td>';
+    echo '<a href="#" class="borrar" data-id="'.$fila['id']. '">Borrar</a>';
+  echo '</td>';
   echo '</tr>';
 }
