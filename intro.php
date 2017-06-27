@@ -26,9 +26,24 @@
     <tbody id="tareas">
 
     </tbody>
-
-
     </table>
+    <br>
+
+    <h2>TABLA JSON</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Texto</th>
+          <th>Estado</th>
+          <th>Usuario ID</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+    <tbody id="tareas-json">
+
+    </tbody>
+  </table>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="js/intro.min.js" ></script>
 

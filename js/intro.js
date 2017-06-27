@@ -10,8 +10,7 @@ function recogerTareas(){
 
   });
 }
-recogerTareas();
-setInterval(recogerTareas,30000);
+
 
 
 $("#guardar").click(function(){
@@ -26,7 +25,11 @@ $("#guardar").click(function(){
       estado:$estado,
       usuario_id:$usuario_id
     },
-    success:recogerTareas
+    success: function (){
+      recogerTareas();
+       recogerTareasJson();
+    }
+
 
   });
 })
@@ -41,9 +44,42 @@ $(document).on("click",".borrar",function(){
              id:$id
            },
 
-           success: recogerTareas
-         }); 
+           success: function (){
+             recogerTareas();
+              recogerTareasJson();
+           }
+         });
 
 
 
 });
+
+
+
+
+function recogerTareasJson(){
+  $.ajax({
+    url: "cargar-tareas-json.php",
+    type: "post",
+    dataType: "json",
+    success: function (tareas){
+      $("#tareas-json").html("");
+      for (var i = 0; i < tareas.length; i++) {
+
+          $("#tareas-json").append("<tr>");
+            $("#tareas-json").append("<td>"+tareas[i].id+"</td>");
+            $("#tareas-json").append("<td>"+tareas[i].texto+"</td>");
+            $("#tareas-json").append("<td>"+tareas[i].estado+"</td>");
+            $("#tareas-json").append("<td>"+tareas[i].usuario_id+"</td>");
+            $("#tareas-json").append("<td><a href='#' class='borrar' data-id='"+tareas[i].id+"'>Borrar</a></td>");
+                $("#tareas-json").append("<tr>");
+    }
+ }
+
+  });
+}
+
+recogerTareas();
+setInterval(recogerTareas,30000);
+recogerTareasJson();
+setInterval(recogerTareasJson,30000);
